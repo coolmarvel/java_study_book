@@ -2,7 +2,7 @@ package sec3;
 
 import java.util.Scanner;
 
-public class arrayDemo1 {
+public class ArrayDemo1 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int scores[] = new int[5];

@@ -1,4 +1,4 @@
-package sec2.dis;
+package sec2;
 
 class Circle {
     double radius;

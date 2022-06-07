@@ -1,4 +1,4 @@
-package test;
+package Chapter3;
 
 public class Main4 {
     // 5번

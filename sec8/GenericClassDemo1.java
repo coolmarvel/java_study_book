@@ -1,7 +1,6 @@
-package sec8.Object;
+package sec8;
 
-import sec8.Beer;
-import sec8.Boricha;
+import sec8.Generic.Cup;
 
 public class GenericClassDemo1 {
     public static void main(String[] args) {

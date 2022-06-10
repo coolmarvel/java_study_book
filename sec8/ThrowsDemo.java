@@ -13,7 +13,7 @@ public class ThrowsDemo {
     }
 
     public static void square(String s) throws NumberFormatException {
-        int n Integer.parseInt(s);
-        System.out.println(n*n);
+        // int n Integer.parseInt(s);
+        // System.out.println(n*n);
     }
 }

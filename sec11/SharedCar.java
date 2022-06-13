@@ -3,7 +3,7 @@ package sec11;
 import java.util.Random;
 
 public class SharedCar {
-    public synchronized void drice(String name, String where) {
+    public synchronized void drive(String name, String where) {
         System.out.println(name + "님이 자동차에 탔습니다.");
 
         Random r = new Random();

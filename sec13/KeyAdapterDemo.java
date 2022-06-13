@@ -14,7 +14,7 @@ public class KeyAdapterDemo extends JFrame {
         add("North", t);
         add("Center", l);
 
-        t.addKeyListener(new KeyAdapterDemo() {
+        t.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     l.setText("입력한 문자열 : " + t.getText());

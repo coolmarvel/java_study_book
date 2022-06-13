@@ -2,7 +2,6 @@ package sec13;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.BorderLayout;
 import java.awt.event.*;
 
 public class EventDemo extends JFrame {
@@ -22,6 +21,38 @@ public class EventDemo extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 220);
         setVisible(true);
+
+        addMouseListener(new MouseListener() {
+            public void mouseClicked(MouseEvent e) {
+                System.out.println("마우스 클릭");
+            }
+
+            public void mousePressed(MouseEvent e) {
+                System.out.println("마우스 버튼 누르기");
+            }
+
+            public void mouseReleased(MouseEvent e) {
+                System.out.println("마우스 버튼 때기");
+            }
+
+            public void mouseEntered(MouseEvent e) {
+                System.out.println("마우스 입장");
+            }
+
+            public void mouseExited(MouseEvent e) {
+                System.out.println("마우스 퇴장");
+            }
+        });
+
+        addMouseMotionListener(new MouseMotionListener() {
+            public void mouseDragged(MouseEvent e) {
+                System.out.println("마우스 드래그(" + e.getX() + ", " + e.getY() + ").");
+            }
+
+            public void mouseMoved(MouseEvent e) {
+                System.out.println("마우스 이동(" + e.getX() + ", " + e.getY() + ").");
+            }
+        });
     }
 
     void showNorth() {
@@ -45,6 +76,21 @@ public class EventDemo extends JFrame {
         panel.add(p2);
 
         add(panel, BorderLayout.NORTH);
+
+        KeyListener listener2 = new KeyListener() {
+            public void keyTyped(KeyEvent e) {
+                System.out.println(e.getKeyChar() + "를 입력했습니다.");
+            }
+
+            public void keyReleased(KeyEvent e) {
+
+            }
+
+            public void keyPressed(KeyEvent e) {
+
+            }
+        };
+        t1.addKeyListener(listener2);
     }
 
     void showCenter() {
@@ -73,6 +119,37 @@ public class EventDemo extends JFrame {
         panel.add(cb);
 
         add(panel, BorderLayout.SOUTH);
+
+        ActionListener listener1 = e -> {
+            if (e.getSource() == cal) {
+                if (t1.getText().isEmpty()) {
+                    area.setText("반지름을 입력하세요!!!");
+                } else {
+                    String s = t1.getText();
+                    double radius = Double.parseDouble(s);
+                    double result = radius * radius * 3.14;
+                    t2.setText("" + result);
+                    area.setText(radius + " * " + radius + " * 3.14 = " + result);
+
+                }
+            } else {
+                t1.setText("");
+                t2.setText("");
+                area.setText("");
+            }
+        };
+
+        cal.addActionListener(listener1);
+        reset.addActionListener(listener1);
+
+        cb.addItemListener(e -> {
+            int index = ((JComboBox) cb).getSelectedIndex();
+            if (index == 0) {
+                area.setForeground(Color.RED);
+            } else {
+                area.setForeground(Color.BLUE);
+            }
+        });
     }
 
     public static void main(String[] args) {

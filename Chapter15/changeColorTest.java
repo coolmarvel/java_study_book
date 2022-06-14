@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class changeColorTest extends JFrame {
-    changeColorTest() {
+public class ChangeColorTest extends JFrame {
+    ChangeColorTest() {
         setTitle("배경색 바꾸기");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 100);
@@ -27,6 +27,6 @@ public class changeColorTest extends JFrame {
     }
 
     public static void main(String[] args) {
-        new changeColorTest();
+        new ChangeColorTest();
     }
 }
